@@ -6,23 +6,20 @@ const employeeModel = require('../models/employee');
     .exec(function (err, data){
         if (err) { return next(err); }
         if ( data.length > 0 ){ return res.json({message:"Already exist", data}) }
-       
-            employeeModel.create({ 
-                empName : req.body.empName,  
-                empdept : req.body.empdept,
-                mobile  : req.body.mobile,
-                email   : req.body.email , 
-                role    : req.body.role,
-                salary  : req.body.salary
-            })
-            .then(function(data) { 
-                res.json({message:"Successfull", data});
-            });
-        
+
+        employeeModel.create({ 
+            empName : req.body.empName,  
+            empdept : req.body.empdept,
+            mobile  : req.body.mobile,
+            email   : req.body.email , 
+            role    : req.body.role,
+            salary  : req.body.salary
+        })
+        .then(function(data) { 
+            res.json({message:"Successfull", data});
+        });        
     });
 
-   
-   
 }
 
 exports.List_employee = (req, res) => {
