@@ -1,0 +1,2 @@
+netstat -ltnp | grep -w '3000'
+kill -9 PID
